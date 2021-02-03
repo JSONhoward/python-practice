@@ -6,6 +6,9 @@ class Queue:
         self.max_size = max_size
 
     def enqueue(self, data):
+        if self.size >= self.max_size:
+            return False
+
         self.queue.append(data)
         self.size += 1
 
@@ -27,10 +30,3 @@ class Queue:
     def print_queue(self):
         for i in self.queue:
             print(i)
-
-my_line = Queue()
-
-for i in range(10):
-    my_line.enqueue(i)
-
-my_line.print_queue()
