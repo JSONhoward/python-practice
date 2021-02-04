@@ -1,6 +1,6 @@
-from DataStructures.queue import Queue
-from DataStructures.stack import Stack
-from DataStructures.linked_list import  Linked_List
+# from DataStructures.queue import Queue
+# from DataStructures.stack import Stack
+from DataStructures.linked_list import Linked_List
 
 # Queue
 ##############################
@@ -27,6 +27,16 @@ my_linked_list = Linked_List()
 for i in range(5):
     my_linked_list.add(i)
 
-my_linked_list.add_at_index(3, "I don't belong here!")
+some_text = "I don't belong here!"
+
+my_linked_list.add_at_index(3, some_text)
+
+my_linked_list.print_nodes()
+
+my_linked_list.remove(some_text)
+
+my_linked_list.print_nodes()
+
+my_linked_list.remove_at_index(1)
 
 my_linked_list.print_nodes()
