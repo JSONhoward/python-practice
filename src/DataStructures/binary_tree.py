@@ -15,12 +15,12 @@ class BinaryTree:
 
     def _find_min_node(self, node):
         if node.left is None:
-            return node.data
+            return node
         return self._find_min_node(node.left)
 
     def _find_max_node(self, node):
         if node.right is None:
-            return node.data
+            return node
         return self._find_max_node(node.right)
 
     def _insert_node(self, node, current):
@@ -49,7 +49,7 @@ class BinaryTree:
         else:
             if node.count > 0:
                 node.count -= 1
-                return None
+                return node
 
             if node.left is None and node.right is None:
                 node = None

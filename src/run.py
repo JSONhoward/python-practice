@@ -46,13 +46,17 @@ from DataStructures.binary_tree import  BinaryTree
 #############################
 my_binary_tree = BinaryTree(10)
 
-nums = [12, 18, 3, 5, 19, 7]
+nums = [12, 18, 3, 5, 19, 7, 5]
 
 for n in nums:
     my_binary_tree.insert(n)
 
 print(my_binary_tree.DFS_in_order())
 
-my_binary_tree.remove(10)
+my_binary_tree.remove(5)
+
+print(my_binary_tree.DFS_in_order())
+
+my_binary_tree.remove(5)
 
 print(my_binary_tree.DFS_in_order())
