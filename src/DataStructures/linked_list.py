@@ -10,6 +10,7 @@ class LinkedList:
     size = 0
 
     def add(self, data):
+        '''Add node to list (at head)'''
         node = Node(data)
 
         if self.head is None:
@@ -22,6 +23,7 @@ class LinkedList:
             self.size += 1
 
     def add_after(self, node_data, data):
+        ''' Add node after another node with passed data'''
         node = Node(data)
 
         if self.head is None:
@@ -40,6 +42,7 @@ class LinkedList:
         self.size += 1
 
     def add_at_end(self, data):
+        '''Add node to end of list (tail)'''
         node = Node(data)
 
         if self.head is None:
@@ -56,6 +59,7 @@ class LinkedList:
         self.size += 1
 
     def add_at_index(self, index, data):
+        '''Add node at index'''
         node = Node(data)
 
         if self.head is None and index != 0:
@@ -83,6 +87,7 @@ class LinkedList:
         self.size += 1
 
     def remove(self, data):
+        '''Remove node that matches passed data'''
         if self.head is None:
             return False
         
@@ -104,6 +109,7 @@ class LinkedList:
             current = None
 
     def remove_at_index(self, index):
+        '''Remove node from index'''
         if self.head is None:
             return False
         elif index == 0 and self.head.next is not None:
@@ -129,6 +135,7 @@ class LinkedList:
         current = None
 
     def print_nodes(self):
+        '''Print all nodes in list'''
         if self.head is None:
             return False
 
