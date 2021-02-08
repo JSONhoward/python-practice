@@ -142,9 +142,8 @@ class LinkedList:
         current = self.head
         nodes = ""
 
-        while current.next is not None:
-            nodes += str(current.data) + '-->'
+        while current is not None:
+            nodes += str(current.data) + ' --> '
             current = current.next
 
-        nodes + str(current.data)
-        print(nodes)
+        print(nodes + 'None')
