@@ -55,7 +55,7 @@ class CircularLinkedList:
             node.next = self.head
             self.size += 1
 
-    def add_after(self, node_data, data):
+    def add_after(self, data, node_data):
         node = Node(data)
 
         if self.head is None:
@@ -76,3 +76,41 @@ class CircularLinkedList:
             node.next = current.next
             current.next = node
             self.size += 1
+
+    def add_at_index(self, data, index):
+        node = Node(data)
+
+        if self.head is None and index != 0:
+            return False
+
+        if index == 0:
+            if self.head is None:
+                self.head = node
+                self.head.next = self.head
+            else:
+                current = self.head
+
+                while current.next is not self.head:
+                    current = current.next
+            
+                node.next = self.head
+                self.head = node
+                current.next = self.head
+        else:
+            if self.head is None:
+                return False
+
+            prev = None
+            current = self.head
+            count = 0
+
+            while current.next is not self.head and count != index:
+                prev = current
+                current = current.next
+                count += 1
+            
+            if count != index:
+                return False
+
+            node.next = current
+            prev.next = node
