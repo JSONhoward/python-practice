@@ -6,31 +6,28 @@ class Node:
 
 class CircularLinkedList:
     size = 0
-
-    def __init__(self, head):
-        self.head = None
+    head = None
 
     def add(self, data):
         node = Node(data)
 
         if self.head is None:
             self.head = node
-            self.head.next = self.head
+            node.next = self.head
             self.size += 1
         elif self.head == self.head.next:
-            self.head.next = node
             node.next = self.head
+            self.head.next = node
             self.head = node
             self.size += 1
         else:
-            node.next = self.head
-            self.head = node
-
             current = self.head
 
             while current.next is not self.head:
                 current = current.next
 
+            node.next = self.head
+            self.head = node
             current.next = self.head
             self.size += 1
 
@@ -114,3 +111,50 @@ class CircularLinkedList:
 
             node.next = current
             prev.next = node
+
+    def remove(self, data):
+        if self.head is None:
+            return False
+            
+        prev = None
+        current = self.head
+
+        while current.data != data and current.next is not self.head:
+            prev = current
+            current = current.next
+
+        if current.data != data:
+            return False
+        
+        if self.head.next == self.head:
+            self.head = None
+            self.size -= 1
+        elif current == self.head:
+            prev = self.head
+
+            while prev.next is not self.head:
+                prev = prev.next
+
+            self.head = self.head.next
+            prev.next = self.head
+            self.size -= 1
+        elif current.next == self.head:
+            prev.next = self.head
+            self.size -= 1
+        else:
+            prev.next = current.next
+            self.size -= 1
+                
+    def print_nodes(self):
+        '''Print all nodes in list'''
+        if self.head is None:
+            return False
+
+        current = self.head
+        nodes = ""
+
+        while current.next != self.head:
+            nodes += str(current.data) + ' --> '
+            current = current.next
+
+        print(nodes + str(current.data) + ' --> Head')

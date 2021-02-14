@@ -1,6 +1,6 @@
-from DataStructures.double_linked_list import DoubleLinkedList
+from DataStructures.circular_linked_list import CircularLinkedList
 
-myList = DoubleLinkedList()
+myList = CircularLinkedList()
 
 arr = [12, 43, 17, 91, 103, 2, 0, 57]
 
@@ -9,14 +9,10 @@ for i in arr:
 
 myList.print_nodes()
 
-myList.remove(max(arr))
+myList.add_after(55, 2)
 
 myList.print_nodes()
 
-myList.remove_at_index(1)
-
-myList.print_nodes()
-
-myList.add_at_tail(7)
+myList.remove(57)
 
 myList.print_nodes()

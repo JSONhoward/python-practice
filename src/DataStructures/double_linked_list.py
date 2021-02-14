@@ -42,7 +42,7 @@ class DoubleLinkedList:
 
     def remove(self, data):
         '''Remove node mathing passed in data'''
-        if self.head is None:
+        if self.head is None or data is None:
             return False
 
         last = None
@@ -63,7 +63,7 @@ class DoubleLinkedList:
 
     def remove_at_index(self, index):
         '''Remove node at index'''
-        if self.head is None:
+        if self.head is None or index is None:
             return False
 
         count = 0

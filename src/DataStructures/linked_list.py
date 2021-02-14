@@ -88,7 +88,7 @@ class LinkedList:
 
     def remove(self, data):
         '''Remove node that matches passed data'''
-        if self.head is None:
+        if self.head is None or data is None:
             return False
         
         prev = None
@@ -110,7 +110,7 @@ class LinkedList:
 
     def remove_at_index(self, index):
         '''Remove node from index'''
-        if self.head is None:
+        if self.head is None or index is None:
             return False
         elif index == 0 and self.head.next is not None:
             self.head = self.head.next
