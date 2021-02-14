@@ -144,6 +144,41 @@ class CircularLinkedList:
         else:
             prev.next = current.next
             self.size -= 1
+
+    def remove_at_index(self, index):
+        if self.head is None:
+            return False
+
+        prev = None
+        current = self.head
+
+        if index == 0:
+            if self.head.next == self.head:
+                self.head = None
+                self.size -= 1
+            else:
+                while current.next is not self.head:
+                    current = current.next
+                
+                self.head = self.head.next
+                current.next = self.head
+                self.size -= 1
+        else:
+            count = 0
+
+            while current.next is not self.head and count != index:
+                prev = current
+                current = current.next
+                count += 1
+
+            if count != index:
+                return False
+
+            prev.next = current.next
+            self.size -= 1
+
+    def length(self):
+        return self.size
                 
     def print_nodes(self):
         '''Print all nodes in list'''
