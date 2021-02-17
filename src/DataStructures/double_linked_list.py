@@ -1,10 +1,4 @@
-class Node:
-    data = None
-    prev = None
-    next = None
-
-    def __init__(self, data):
-        self.data = data
+from DataStructures.node import Node
 
 class DoubleLinkedList:
     size = 0
